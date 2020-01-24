@@ -1,5 +1,19 @@
 import React, { Component} from 'react'
 import { Alert, Text, StyleSheet, View, Image, TextInput, TouchableOpacity } from 'react-native'
+import cors from 'cors';
+import express from 'express';
+
+import {
+    ApolloServer
+} from 'apollo-server-express';
+
+const app = express();
+app.use(cors());
+const server = new ApolloServer({});
+server.applyMiddleware({
+    app,
+    path: '/graphql'
+});
 
 export default class App extends Component {
 
